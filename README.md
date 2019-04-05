@@ -42,4 +42,16 @@ It is important to ensure the sheep cannot move from the chosen location.
 Below the 'drop' sheep, 3 blocks below the ground, place another sheep. Once again this sheep must not move otherwise
 the dropped egg won't be detected. 
 
- 
+## Build instructions
+
+To build this behaviour pack run
+```text
+    ./gradlew zipBehaviourPack
+```
+
+The built .mcpack file can be found in the build/distributions directory.
+
+## Install
+
+On Windows 10, double-click the .mcpack file in explorer to launch minecraft and install the behaviour pack.
+When launching a world the behaviour pack can be added in the world's settings.
