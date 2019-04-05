@@ -1,0 +1,33 @@
+plugins {
+    id 'base'
+}
+
+group 'com.foomoo.minecraft.behaviour'
+version "$majorVersion.$minorVersion.$buildNumber"
+
+String packUuidString = UUID.randomUUID().toString()
+String moduleUuidString = UUID.randomUUID().toString()
+
+task generateManifest(type: Copy) {
+    from 'src/main/templates/manifest-template.json'
+    into "$buildDir/generated-src"
+
+    def values = [
+            packUuid: packUuidString,
+            moduleUuid: moduleUuidString,
+            majorVersion: majorVersion,
+            minorVersion: minorVersion,
+            buildNumber: buildNumber
+    ]
+    inputs.properties(values)
+    expand(values)
+    rename 'manifest-template.json', 'manifest.json'
+}
+
+task zipBehaviourPack(type: Zip) {
+    extension "mcpack"
+    from 'src/main/resources'
+    from "$buildDir/generated-src"
+}
+
+zipBehaviourPack.dependsOn generateManifest

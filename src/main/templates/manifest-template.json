@@ -1,0 +1,17 @@
+{
+  "format_version": 1,
+  "header": {
+    "uuid": "${packUuid}",
+    "name": "pack.name",
+    "version": [ ${majorVersion}, ${minorVersion}, ${buildNumber} ],
+    "description": "pack.description",
+    "min_engine_version": [1, 10, 1]
+  },
+  "modules": [
+    {
+      "version": [ ${majorVersion}, ${minorVersion}, ${buildNumber} ],
+      "uuid": "${moduleUuid}",
+      "type": "data"
+    }
+  ]
+}
